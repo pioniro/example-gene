@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th></th>
+            {% for gamete in gametes %}
+                <th>{{ gamete }}</th>
+            {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for gamete in gametes %}
+                {% set index = loop.index0 %}
+                <tr>
+                    <th>{{ gamete }}</th>
+                    {% for variant in variants[index] %}
+                        <td class="gene">{{ variant|join(' ') }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style type="text/css">
+        .table.table-striped.table-bordered td.gene{
+            font-size: 0.7em;
+            white-space: nowrap;
+        }
+    </style>
+{% endblock %}

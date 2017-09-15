@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <form action="{{ url('table') }}" class="form-horizontal col-sm-12">
+                <div class="form-group">
+                    <label class="col-sm-2 controle-label">Ген 1</label>
+                    <div class="col-sm-5">
+                        <select name="gene[]" class="form-control">
+                            <option value="{{ constant('AppBundle\\Entity\\Gene::aa') }}">aa</option>
+                            <option value="{{ constant('AppBundle\\Entity\\Gene::Aa') }}">Aa</option>
+                            <option value="{{ constant('AppBundle\\Entity\\Gene::aA') }}">aA</option>
+                            <option value="{{ constant('AppBundle\\Entity\\Gene::AA') }}">AA</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
